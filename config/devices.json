@@ -1,0 +1,9 @@
+{
+  "poll_interval_seconds": 60,
+  "timeout_seconds": 2,
+  "database": "monitor.db",
+  "alert_webhook": "",
+  "devices": [
+    {"name": "lab-agent", "host": "127.0.0.1", "community": "nocLabOnly", "port": 161}
+  ]
+}
