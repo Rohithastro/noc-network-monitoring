@@ -1,0 +1,24 @@
+[Unit]
+Description=NOC SNMP device poll
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=oneshot
+User=nocmon
+Group=nocmon
+Environment=PYTHONPATH=/opt/nocmon/src
+ExecStart=/usr/bin/python3 -m nocmon --config /etc/nocmon/devices.json poll
+WorkingDirectory=/var/lib/nocmon
+StateDirectory=nocmon
+StateDirectoryMode=0750
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+NoNewPrivileges=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
